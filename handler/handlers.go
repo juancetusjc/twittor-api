@@ -6,6 +6,8 @@ import (
 	"os"
 
 	"github.com/gorilla/mux"
+	"github.com/juancetusjc/twittor-back/middleware"
+	"github.com/juancetusjc/twittor-back/routers"
 	"github.com/rs/cors"
 )
 
@@ -21,6 +23,8 @@ func ping(w http.ResponseWriter, r *http.Request) {
 /*Handler config port and listener */
 func Handerls() {
 	router := mux.NewRouter()
+
+	router.HandleFunc("/register", middleware.CheckConnection(routers.Register))
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"

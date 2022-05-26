@@ -1,4 +1,4 @@
-package bd
+package connection
 
 import (
 	"context"

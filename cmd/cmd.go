@@ -2,6 +2,7 @@ package cmd
 
 import "net/http"
 
+/* cmd init*/
 func cmd() {
 	http.HandleFunc("/ping", ping)
 	http.ListenAndServe(":8083", nil)
